@@ -1,7 +1,7 @@
 package com.barabanov.spring;
 
 import com.barabanov.spring.database.pool.ConnectionPool;
-import com.barabanov.spring.database.repository.CompanyRepository;
+import com.barabanov.spring.database.repository.CrudRepository;
 import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -15,11 +15,11 @@ public class ApplicationRunner
 
         try (var context = new ClassPathXmlApplicationContext("application.xml"))
         {
-        var connectionPool = context.getBean("p2", ConnectionPool.class);
+        var connectionPool = context.getBean("pool1", ConnectionPool.class);
         System.out.println(connectionPool);
 
-        var companyRepository = context.getBean("companyRepository", CompanyRepository.class);
-        System.out.println(companyRepository);
+        var companyRepository = context.getBean("companyRepository", CrudRepository.class);
+        System.out.println(companyRepository.findById(1));
         }
 
     }
