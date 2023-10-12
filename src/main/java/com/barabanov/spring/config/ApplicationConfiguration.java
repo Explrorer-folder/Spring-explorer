@@ -1,27 +1,16 @@
 package com.barabanov.spring.config;
 
 import com.barabanov.spring.database.pool.ConnectionPool;
-import com.barabanov.spring.database.repository.CrudRepository;
 import com.barabanov.spring.database.repository.UserRepository;
 import com.barabanov.web.config.WebConfiguration;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.*;
-import org.springframework.context.annotation.ComponentScan.Filter;
-import org.springframework.stereotype.Component;
 
 
 //@ImportResource("classpath:application.xml")
 @Import(WebConfiguration.class)
 @Configuration(proxyBeanMethods = true)
-@PropertySource("classpath:application.properties")
-@ComponentScan(basePackages = "com.barabanov.spring",
-useDefaultFilters = false,
-includeFilters = {
-        @Filter(value = Component.class), // ANNOTATION по умолчанию
-        @Filter(type = FilterType.ASSIGNABLE_TYPE, value = CrudRepository.class),
-        @Filter(type = FilterType.REGEX, pattern = "com\\..+Repository")
-})
 public class ApplicationConfiguration
 {
 
