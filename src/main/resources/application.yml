@@ -19,3 +19,11 @@ db:
     - size: 3
       timeout: 3
 spring.profiles.active: qa
+
+logging:
+  file:
+    name: barabanov.log
+    path: /
+  level:
+    root: WARN
+    com.barabanov.spring.database.pool.ConnectionPool: INFO
