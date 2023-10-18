@@ -12,6 +12,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.context.ApplicationEventPublisher;
 
+import java.util.Collections;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -41,7 +42,7 @@ class CompanyServiceTest
     void findById1()
     {
         // мокаем функционал
-        doReturn(Optional.of(new Company(COMPANY_ID)))
+        doReturn(Optional.of(new Company(COMPANY_ID, null, Collections.emptyMap())))
                 .when(companyRepository).findById(COMPANY_ID);
 
         var actualResult = companyService.findById(COMPANY_ID);

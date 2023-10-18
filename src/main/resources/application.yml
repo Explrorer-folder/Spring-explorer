@@ -25,5 +25,16 @@ logging:
     name: barabanov.log
     path: /
   level:
-    root: WARN
+    root: INFO
     com.barabanov.spring.database.pool.ConnectionPool: INFO
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5433/postgres_spring
+    username: postgres
+    password: pass
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties.hibernate:
+      show_sql: true
+      format_sql: true
+      hbm2ddl.auto: validate

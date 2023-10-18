@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -41,7 +42,7 @@ public class CompanyRepository implements CrudRepository<Integer, Company>
     public Optional<Company> findById(Integer id)
     {
         log.info("find by id method...");
-        return Optional.of(new Company(id));
+        return Optional.of(new Company(id, null, Collections.emptyMap()));
     }
 
     @Override
