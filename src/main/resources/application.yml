@@ -21,12 +21,13 @@ db:
 spring.profiles.active: qa
 
 logging:
-  file:
-    name: barabanov.log
-    path: /
   level:
     root: INFO
     com.barabanov.spring.database.pool.ConnectionPool: INFO
+    org.springframework.jdbc.core: TRACE
+  file:
+    name: barabanov.log
+    path: /
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5433/postgres_spring
@@ -35,6 +36,8 @@ spring:
     driver-class-name: org.postgresql.Driver
   jpa:
     properties.hibernate:
+      batch_size: 50
+      fetch_size: 50
       show_sql: true
       format_sql: true
       hbm2ddl.auto: validate
