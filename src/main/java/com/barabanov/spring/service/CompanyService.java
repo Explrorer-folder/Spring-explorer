@@ -1,7 +1,6 @@
 package com.barabanov.spring.service;
 
-import com.barabanov.spring.database.entity.Company;
-import com.barabanov.spring.database.repository.CrudRepository;
+import com.barabanov.spring.database.repository.CompanyRepository;
 import com.barabanov.spring.dto.CompanyReadDto;
 import com.barabanov.spring.listener.entity.AccessType;
 import com.barabanov.spring.listener.entity.EntityEvent;
@@ -18,7 +17,7 @@ import java.util.Optional;
 @Transactional
 public class CompanyService
 {
-    private final CrudRepository<Integer, Company>  companyRepository;
+    private final CompanyRepository companyRepository;
     private final UserService userService;
     private final ApplicationEventPublisher eventPublisher;
 

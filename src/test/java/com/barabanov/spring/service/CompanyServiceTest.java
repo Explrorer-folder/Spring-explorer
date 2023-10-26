@@ -2,7 +2,7 @@ package com.barabanov.spring.service;
 
 
 import com.barabanov.spring.database.entity.Company;
-import com.barabanov.spring.database.repository.CrudRepository;
+import com.barabanov.spring.database.repository.CompanyRepository;
 import com.barabanov.spring.dto.CompanyReadDto;
 import com.barabanov.spring.listener.entity.EntityEvent;
 import org.junit.jupiter.api.Test;
@@ -28,7 +28,7 @@ class CompanyServiceTest
     private final static Integer COMPANY_ID = 1;
 
     @Mock
-    private CrudRepository<Integer, Company> companyRepository;
+    private CompanyRepository companyRepository;
     @Mock
     private UserService userService;
     @Mock

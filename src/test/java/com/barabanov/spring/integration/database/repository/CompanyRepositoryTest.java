@@ -1,6 +1,7 @@
 package com.barabanov.spring.integration.database.repository;
 
 import com.barabanov.spring.database.entity.Company;
+import com.barabanov.spring.database.repository.CompanyRepository;
 import com.barabanov.spring.integration.annotation.IT;
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,7 @@ import java.util.Map;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 @IT
@@ -19,8 +21,34 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 @Commit
 class CompanyRepositoryTest
 {
+    private final static  Integer APPLE_ID = 5;
+
     private final EntityManager entityManager;
     private final TransactionTemplate transactionTemplate;
+    private final CompanyRepository companyRepository;
+
+
+    @Test
+    void checkFindByQueries()
+    {
+        companyRepository.findByName("google");
+        companyRepository.findAllByNameContainingIgnoreCase("a");
+
+    }
+
+
+    @Test
+    void delete()
+    {
+        var mayBeCompany = companyRepository.findById(APPLE_ID);
+
+        assertTrue(mayBeCompany.isPresent());
+        mayBeCompany.ifPresent(companyRepository::delete);
+
+        entityManager.flush();
+        assertTrue(companyRepository.findById(APPLE_ID).isEmpty());
+    }
+
 
     @Test
     void findById()
@@ -34,6 +62,7 @@ class CompanyRepositoryTest
         });
 
     }
+
 
     @Test
     void save()
