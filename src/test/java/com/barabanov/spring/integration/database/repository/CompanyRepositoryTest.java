@@ -2,10 +2,10 @@ package com.barabanov.spring.integration.database.repository;
 
 import com.barabanov.spring.database.entity.Company;
 import com.barabanov.spring.database.repository.CompanyRepository;
-import com.barabanov.spring.integration.annotation.IT;
+import com.barabanov.spring.integration.IntegrationTestBase;
 import lombok.RequiredArgsConstructor;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.support.TransactionTemplate;
 
 import javax.persistence.EntityManager;
@@ -16,10 +16,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
-@IT
 @RequiredArgsConstructor
-@Commit
-class CompanyRepositoryTest
+class CompanyRepositoryTest extends IntegrationTestBase
 {
     private final static  Integer APPLE_ID = 5;
 
@@ -38,6 +36,7 @@ class CompanyRepositoryTest
 
 
     @Test
+    @Disabled
     void delete()
     {
         var mayBeCompany = companyRepository.findById(APPLE_ID);

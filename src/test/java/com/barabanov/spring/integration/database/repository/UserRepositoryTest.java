@@ -4,12 +4,11 @@ import com.barabanov.spring.database.entity.Role;
 import com.barabanov.spring.database.entity.User;
 import com.barabanov.spring.database.repository.UserRepository;
 import com.barabanov.spring.dto.UserFilter;
-import com.barabanov.spring.integration.annotation.IT;
+import com.barabanov.spring.integration.IntegrationTestBase;
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import org.springframework.test.annotation.Commit;
 
 import java.time.LocalDate;
 
@@ -17,9 +16,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-@IT
 @RequiredArgsConstructor
-class UserRepositoryTest
+class UserRepositoryTest extends IntegrationTestBase
 {
 
     private final UserRepository userRepository;
@@ -42,7 +40,6 @@ class UserRepositoryTest
 
 
     @Test
-    @Commit
     void checkAuditing()
     {
         var ivan = userRepository.findById(1L).get();

@@ -22,7 +22,7 @@ import static com.barabanov.spring.database.entity.QUser.user;
 public class FilterUserRepositoryImpl implements FilterUserRepository
 {
     private static final String FIND_BY_COMPANY_AND_ROLE = """
-            SELECT 
+            SELECT
                 firstname,
                 lastname,
                 birth_date

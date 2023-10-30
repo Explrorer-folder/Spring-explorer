@@ -3,6 +3,9 @@ db:
   password: test
 
 spring:
+  datasource:
+    username: test
+    password: test
   jpa:
     properties.hibernate:
       show_sql: true

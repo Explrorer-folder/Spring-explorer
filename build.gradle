@@ -6,6 +6,8 @@ plugins {
     id 'java'
 }
 
+apply from: 'version.gradle'
+
 group 'com.barabanov'
 version '1.0'
 
@@ -27,11 +29,12 @@ dependencies {
     annotationProcessor 'com.querydsl:querydsl-apt'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation "org.testcontainers:postgresql:${versions.testcontainers}"
 }
 
 querydsl {
     jpa = true
-    library = 'com.querydsl:querydsl-apt:5.0.0'
+    library = "com.querydsl:querydsl-apt:${versions.querydsl}"
     querydslSourcesDir = "$buildDir/generated/sources/annotationProcessor/java/main"
 }
 
