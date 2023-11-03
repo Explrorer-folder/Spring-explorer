@@ -29,6 +29,12 @@ logging:
     name: barabanov.log
     path: /
 spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+    format:
+      date: iso
   datasource:
     url: jdbc:postgresql://localhost:5433/postgres_spring
     username: postgres
@@ -41,3 +47,4 @@ spring:
       show_sql: true
       format_sql: true
       hbm2ddl.auto: validate
+    open-in-view: false

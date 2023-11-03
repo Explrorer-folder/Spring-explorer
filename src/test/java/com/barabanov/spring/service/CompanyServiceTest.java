@@ -51,7 +51,7 @@ class CompanyServiceTest
         assertTrue(actualResult.isPresent());
 
         // сравнение возвращаемого объекта
-        var expectedResult = new CompanyReadDto(COMPANY_ID);
+        var expectedResult = new CompanyReadDto(COMPANY_ID, null);
         actualResult.ifPresent(actual -> assertEquals(expectedResult, actual));
 
         // проверка, что опубликовался ивент и что больше ничего не делалось
