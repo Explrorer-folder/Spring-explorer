@@ -20,7 +20,7 @@ public class LoginController
     @PostMapping("login")
     public String login(@ModelAttribute("login") LoginDto loginDto, Model model)
     {
-//        return "forward:/WEB-INF/jsp/user/login.jsp";
+//        return "forward:/WEB-INF/jsp/user/login.html";
         return "redirect:https://google.com";
     }
 }
