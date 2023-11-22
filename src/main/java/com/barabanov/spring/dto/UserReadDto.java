@@ -15,5 +15,6 @@ public class UserReadDto
     String firstname;
     String lastname;
     Role role;
+    String image;
     CompanyReadDto company;
 }

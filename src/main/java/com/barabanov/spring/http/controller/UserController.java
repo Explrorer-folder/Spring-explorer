@@ -1,13 +1,17 @@
 package com.barabanov.spring.http.controller;
 
 import com.barabanov.spring.database.entity.Role;
+import com.barabanov.spring.dto.PageResponse;
 import com.barabanov.spring.dto.UserCreateEditDto;
+import com.barabanov.spring.dto.UserFilter;
+import com.barabanov.spring.dto.UserReadDto;
 import com.barabanov.spring.service.CompanyService;
 import com.barabanov.spring.service.UserService;
 import com.barabanov.spring.validation.group.CreateAction;
 import com.barabanov.spring.validation.group.UpdateAction;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,9 +35,10 @@ public class UserController
 
 
     @GetMapping
-    public String findAll(Model model)
-    {
-        model.addAttribute("users", userService.findAll());
+    public String findAll(Model model, UserFilter filter, Pageable pageable) {
+        Page<UserReadDto> page = userService.findAll(filter, pageable);
+        model.addAttribute("users", PageResponse.of(page));
+        model.addAttribute("filter", filter);
         return "user/users";
     }
 
