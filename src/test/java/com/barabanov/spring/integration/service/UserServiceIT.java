@@ -6,6 +6,7 @@ import com.barabanov.spring.integration.IntegrationTestBase;
 import com.barabanov.spring.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.junit.jupiter.api.Test;
+import org.springframework.mock.web.MockMultipartFile;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
@@ -40,11 +41,13 @@ public class UserServiceIT extends IntegrationTestBase
     {
         var userDto = new UserCreateEditDto(
                 "test@gmail.com",
+                "test",
                 null,
                 "test",
                 "test",
                 Role.ADMIN,
-                COMPANY_1
+                COMPANY_1,
+                new MockMultipartFile("test", new byte[0])
         );
 
         var actualResult = userService.create(userDto);
@@ -61,11 +64,13 @@ public class UserServiceIT extends IntegrationTestBase
     {
         var userDto = new UserCreateEditDto(
                 "test@gmail.com",
+                "test",
                 null,
                 "test",
                 "test",
                 Role.ADMIN,
-                COMPANY_1
+                COMPANY_1,
+                new MockMultipartFile("test", new byte[0])
         );
 
         var actualResult = userService.update(USER_1, userDto);

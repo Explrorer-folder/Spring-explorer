@@ -48,3 +48,12 @@ spring:
       format_sql: true
       hbm2ddl.auto: validate
     open-in-view: false
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 176389550094-taa89a6n0j5047ik8iemq7n6d1pqld65.apps.googleusercontent.com
+            client-secret: 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
+            redirect-uri: http://localhost:8080/login/oauth2/code/google
+            scope: openid, email, profile #по умолчанию будет openid, а про email и т.д. - хз
