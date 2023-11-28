@@ -56,4 +56,14 @@ spring:
             client-id: 176389550094-taa89a6n0j5047ik8iemq7n6d1pqld65.apps.googleusercontent.com
             client-secret: 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
             redirect-uri: http://localhost:8080/login/oauth2/code/google
-            scope: openid, email, profile #по умолчанию будет openid, а про email и т.д. - хз
+            scope: openid, email, profile # устанавливается и автоматически от OAuth провайдера
+
+springdoc:
+  swagger-ui:
+    oauth:
+      client-id: 176389550094-taa89a6n0j5047ik8iemq7n6d1pqld65.apps.googleusercontent.com
+      client-secret: GOCSPX-lWY29uA-N_7vk2bVz-3gU1WDDZg
+      scopes: openid, email, profile
+    oauth2-redirect-url: http://localhost:8080/swagger-ui/oauth2-redirect.html # будет такой же по умолчанию вроде
+    # (либо просто такой же,либо тот же что и в google указывали)
+

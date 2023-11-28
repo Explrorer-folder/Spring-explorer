@@ -30,11 +30,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(urlConfig -> urlConfig      // новый формат. Всё что связано с настройкой путей происходит внутри этого метода
-                        .antMatchers("/login", "/users/registration", "/v3/api-docs/**", "/swagger-ui/**").permitAll()
-                        .antMatchers("/users/{\\d+}/delete").hasAuthority(ADMIN.getAuthority())
-                        .antMatchers("/admin/**").hasAuthority(ADMIN.getAuthority())
-                        .anyRequest().authenticated()
-                )
+                                .antMatchers("/login", "/users/registration", "/v3/api-docs/**", "/swagger-ui/**").permitAll()
+                                .antMatchers("/users/{\\d+}/delete").hasAuthority(ADMIN.getAuthority())
+                                .antMatchers("/admin/**").hasAuthority(ADMIN.getAuthority())
+                                .anyRequest().authenticated()
+                        )
 //                .httpBasic(Customizer.withDefaults());
                 .logout(logout -> logout
                         .logoutUrl("/logout")
