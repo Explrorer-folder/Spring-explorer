@@ -1,4 +1,4 @@
-package com.barabanov.spring.integration.service;
+package com.barabanov.spring.service.service;
 
 import com.barabanov.spring.database.entity.Role;
 import com.barabanov.spring.dto.UserCreateEditDto;

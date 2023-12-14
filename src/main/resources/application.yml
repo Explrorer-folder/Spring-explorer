@@ -58,6 +58,9 @@ spring:
             redirect-uri: http://localhost:8080/login/oauth2/code/google
             scope: openid, email, profile # устанавливается и автоматически от OAuth провайдера
 
+  messages: # интернационализация и локализация
+    basename: messages
+
 springdoc:
   swagger-ui:
     oauth:
