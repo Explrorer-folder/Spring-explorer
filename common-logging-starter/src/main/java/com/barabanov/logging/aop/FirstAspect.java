@@ -1,9 +1,11 @@
-package com.barabanov.spring.aop;
+package com.barabanov.logging.aop;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 
@@ -12,24 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class FirstAspect
 {
 
-    @Pointcut("com.barabanov.spring.aop.CommonPointcuts.isControllerLayer() && @annotation(org.springframework.web.bind.annotation.GetMapping)")
-    public void hasGetMapping()
-    {}
-
-    //Первый параметр Model, остальных параметров любое количество.
-    @Pointcut("com.barabanov.spring.aop.CommonPointcuts.isControllerLayer() && args(org.springframework.ui.Model,..)")
-    public void hasModelParam()
-    {}
-
-    @Pointcut("com.barabanov.spring.aop.CommonPointcuts.isControllerLayer() && @args(com.barabanov.spring.validation.UserInfo,..)")
-    public void hasUserInfoParamAnnotation()
-    {}
-
-    @Pointcut("bean(*Service)")
-    public void isServiceLayerBean()
-    {}
-
-    @Pointcut("execution(public * com.barabanov.spring.service.*Service.findById(*))")
+    @Pointcut("execution(public * com.barabanov.*.service.*Service.findById(*))")
     public void anyFindByIdServiceMethod()
     {}
 

@@ -1,4 +1,4 @@
-package com.barabanov.spring.aop;
+package com.barabanov.logging.aop;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 
 
 @Aspect
-@Component
 public class CommonPointcuts
 {
     @Pointcut(value = "@within(org.springframework.stereotype.Controller)")
@@ -14,7 +13,7 @@ public class CommonPointcuts
     {}
 
 
-    @Pointcut("within(com.barabanov.spring.service.*)")
+    @Pointcut("within(com.barabanov.*.service.*)")
     public void isServiceLayer()
     {}
 
