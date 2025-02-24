@@ -3,3 +3,5 @@
 /.idea/
 /barabanov.log
 /images/
+/common-logging-starter/.gradle/
+/common-logging-starter/build/
